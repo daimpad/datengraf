@@ -17,8 +17,8 @@ Sicherheitsupdates werden ausschließlich für die aktuelle Version im `main`-Br
 
 | Version | Support |
 |---|---|
-| `main` (aktuell) | ✅ Aktiv |
-| Ältere Commits | ❌ Kein Support |
+| `main` (aktuell) | Aktiv |
+| Ältere Commits | Kein Support |
 
 ---
 
