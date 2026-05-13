@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="Interaktive Kartierung von Datenflüssen: Netzwerkkarte, Betweenness Centrality, Community Detection – alles im Browser.">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.23.0/cytoscape.min.js"></script>
 </head>
 <body>
@@ -34,8 +35,8 @@
       <span class="step-hint" id="wizard-hint"></span>
       <div class="btn-row" style="margin:0">
         <button class="btn btn-secondary btn-sm" id="wizard-cancel">Abbrechen</button>
-        <button class="btn btn-secondary btn-sm" id="wizard-back">← Zurück</button>
-        <button class="btn btn-primary btn-sm"   id="wizard-next">Weiter →</button>
+        <button class="btn btn-secondary btn-sm" id="wizard-back"><i class="fas fa-arrow-left"></i> Zurück</button>
+        <button class="btn btn-primary btn-sm"   id="wizard-next">Weiter <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -51,66 +52,66 @@
     </div>
 
     <div class="sidebar-section">
-      <h3>Beziehungstyp</h3>
+      <h3><i class="fas fa-arrows-left-right fa-fw"></i> Beziehungstyp</h3>
       <div class="chip-group" id="filter-chips-relation"></div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Schutzbedarf</h3>
+      <h3><i class="fas fa-shield-halved fa-fw"></i> Schutzbedarf</h3>
       <div class="chip-group" id="filter-chips-schutz"></div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Erfassungsart</h3>
+      <h3><i class="fas fa-pen-to-square fa-fw"></i> Erfassungsart</h3>
       <div class="chip-group" id="filter-chips-erfassung"></div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Organisation</h3>
+      <h3><i class="fas fa-building fa-fw"></i> Organisation</h3>
       <div class="filter-group">
         <select id="filter-organization"><option value="all">Alle</option></select>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Abteilung</h3>
+      <h3><i class="fas fa-sitemap fa-fw"></i> Abteilung</h3>
       <div class="filter-group">
         <select id="filter-department"><option value="all">Alle</option></select>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Häufigkeit</h3>
+      <h3><i class="fas fa-clock fa-fw"></i> Häufigkeit</h3>
       <div class="filter-group">
         <select id="filter-frequency"><option value="all">Alle</option></select>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Format</h3>
+      <h3><i class="fas fa-file fa-fw"></i> Format</h3>
       <div class="filter-group">
         <select id="filter-format"><option value="all">Alle</option></select>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <h3>Suche</h3>
+      <h3><i class="fas fa-magnifying-glass fa-fw"></i> Suche</h3>
       <div class="filter-group">
         <input type="text" id="filter-search" placeholder="Akteur suchen…">
       </div>
     </div>
 
     <div class="sidebar-actions">
-      <button class="btn btn-secondary btn-sm" id="export-csv-btn">⬇ CSV exportieren</button>
-      <button class="btn btn-secondary btn-sm" id="save-local-btn">💾 Im Browser speichern</button>
-      <button class="btn btn-secondary btn-sm" id="load-local-btn">📂 Aus Browser laden</button>
+      <button class="btn btn-secondary btn-sm" id="export-csv-btn"><i class="fas fa-download"></i> CSV exportieren</button>
+      <button class="btn btn-secondary btn-sm" id="save-local-btn"><i class="fas fa-floppy-disk"></i> Im Browser speichern</button>
+      <button class="btn btn-secondary btn-sm" id="load-local-btn"><i class="fas fa-folder-open"></i> Aus Browser laden</button>
     </div>
   </aside>
 
   <!-- ── Main ────────────────────────────────────────────────────── -->
   <div class="main">
     <div class="topbar">
-      <button class="btn btn-secondary btn-icon" id="sidebar-toggle-btn" title="Filter ein-/ausblenden">☰</button>
+      <button class="btn btn-secondary btn-icon" id="sidebar-toggle-btn" title="Filter ein-/ausblenden"><i class="fas fa-bars"></i></button>
       <span class="topbar-brand">Datengraf</span>
       <nav class="topbar-tabs">
         <button class="topbar-tab active" data-tab="list">Listenansicht</button>
@@ -118,7 +119,7 @@
         <button class="topbar-tab" data-tab="insights">Netzwerk-Insights</button>
       </nav>
       <div class="topbar-spacer"></div>
-      <button class="btn btn-primary btn-sm" id="open-wizard-btn">+ Datenfluss erfassen</button>
+      <button class="btn btn-primary btn-sm" id="open-wizard-btn"><i class="fas fa-plus"></i> Datenfluss erfassen</button>
     </div>
 
     <div class="content">
@@ -126,7 +127,7 @@
       <!-- Import Panel -->
       <div class="import-panel">
         <div class="import-panel-header" id="import-toggle">
-          <span>📥</span>
+          <span><i class="fas fa-file-import"></i></span>
           <span class="import-panel-title">CSV importieren</span>
           <span class="import-panel-toggle" id="import-toggle-label">▼ öffnen</span>
         </div>
@@ -151,7 +152,7 @@
           <div class="import-section" id="import-file">
             <div class="file-drop-zone" id="drop-zone">
               <input type="file" id="csv-file" accept=".csv">
-              <div>📄 Datei auswählen oder hierher ziehen</div>
+              <div><i class="fas fa-file-csv"></i> Datei auswählen oder hierher ziehen</div>
               <div style="font-size:11px;color:var(--c-muted);margin-top:4px" id="file-name-display"></div>
             </div>
           </div>
@@ -159,7 +160,7 @@
           <div class="btn-row">
             <button class="btn btn-primary btn-sm" id="btn-visualize">Visualisieren</button>
             <button class="btn btn-secondary btn-sm" id="btn-append">Zu vorhandenen Daten hinzufügen</button>
-            <button class="btn btn-secondary btn-sm" id="btn-load-sample">📊 Beispieldaten laden</button>
+            <button class="btn btn-secondary btn-sm" id="btn-load-sample"><i class="fas fa-table"></i> Beispieldaten laden</button>
           </div>
           <div id="status-message"></div>
         </div>
@@ -192,7 +193,7 @@
           <button class="btn btn-icon btn-secondary" id="btn-zoom-in"    title="+">+</button>
           <button class="btn btn-icon btn-secondary" id="btn-zoom-out"   title="−">−</button>
           <button class="btn btn-icon btn-secondary" id="btn-zoom-fit"   title="Anpassen">=</button>
-          <button class="btn btn-icon btn-secondary" id="btn-fullscreen" title="Vollbild">⛶</button>
+          <button class="btn btn-icon btn-secondary" id="btn-fullscreen" title="Vollbild"><i class="fas fa-expand"></i></button>
         </div>
         <div id="network-container"></div>
       </div>

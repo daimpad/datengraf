@@ -13,14 +13,14 @@
 
 | Feature | Beschreibung |
 |---|---|
-| 🧙 **Schritt-für-Schritt-Wizard** | Strukturierte Erfassung neuer Datenflüsse in 4 geführten Schritten inkl. DSGVO-Schutzbedarf und Erfassungsart |
-| 🌐 **Netzwerkkarte** | Interaktive Graphvisualisierung mit Cytoscape.js – zoom, pan, Knoten-Highlight, Vollbild |
-| 📊 **Netzwerk-Insights** | Automatische Berechnung von Out-/In-Degree, Betweenness Centrality und Community Clusters |
-| 🔍 **Filter-Sidebar** | Dynamisches Filtern nach Beziehungstyp, Schutzbedarf, Erfassungsart, Organisation, Häufigkeit u. v. m. |
-| 📥 **Flexibler CSV-Import** | Einfügen per Paste, Laden per URL (z. B. `raw.githubusercontent.com`) oder lokaler Dateiupload mit Drag & Drop |
-| 💾 **Local-First / No-Database** | Alle Daten bleiben im Browser (LocalStorage) – kein Backend, kein Account erforderlich |
-| ⬇️ **CSV-Export** | Alle erfassten Datenflüsse jederzeit als CSV herunterladen |
-| 🔒 **Datenschutz-Dimensionen** | Jeder Datenfluss trägt Schutzbedarf (DSGVO-relevant / Intern / Öffentlich) und Erfassungsart (Manuell / Automatisiert) |
+| **Schritt-für-Schritt-Wizard** | Strukturierte Erfassung neuer Datenflüsse in 4 geführten Schritten inkl. DSGVO-Schutzbedarf und Erfassungsart |
+| **Netzwerkkarte** | Interaktive Graphvisualisierung mit Cytoscape.js – zoom, pan, Knoten-Highlight, Vollbild |
+| **Netzwerk-Insights** | Automatische Berechnung von Out-/In-Degree, Betweenness Centrality und Community Clusters |
+| **Filter-Sidebar** | Dynamisches Filtern nach Beziehungstyp, Schutzbedarf, Erfassungsart, Organisation, Häufigkeit u. v. m. |
+| **Flexibler CSV-Import** | Einfügen per Paste, Laden per URL (z. B. `raw.githubusercontent.com`) oder lokaler Dateiupload mit Drag & Drop |
+| **Local-First / No-Database** | Alle Daten bleiben im Browser (LocalStorage) – kein Backend, kein Account erforderlich |
+| **CSV-Export** | Alle erfassten Datenflüsse jederzeit als CSV herunterladen |
+| **Datenschutz-Dimensionen** | Jeder Datenfluss trägt Schutzbedarf (DSGVO-relevant / Intern / Öffentlich) und Erfassungsart (Manuell / Automatisiert) |
 
 ---
 
@@ -34,7 +34,7 @@
 https://daimpad.github.io/datengraf
 ```
 
-Beim Start werden die Beispieldaten automatisch geladen.
+Beim Start ist die App leer. Klicken Sie auf **Beispieldaten laden**, um den enthaltenen Datensatz zu importieren.
 
 ### Option B – lokal ausführen
 

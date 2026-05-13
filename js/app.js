@@ -165,16 +165,16 @@ function renderList(data) {
 
   if (!data.length) {
     statsEl.innerHTML   = '';
-    contentEl.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Keine Daten vorhanden. CSV importieren oder Datenfluss erfassen.</p></div>';
+    contentEl.innerHTML = '<div class="empty-state"><div class="empty-icon"><i class="fas fa-inbox fa-2x"></i></div><p>Keine Daten vorhanden. CSV importieren oder Datenfluss erfassen.</p></div>';
     return;
   }
 
   const nodes = new Set([...data.map(r => r.Quelle), ...data.map(r => r.Ziel)].filter(Boolean));
   statsEl.innerHTML = `
-    <span class="stat-pill">🔵 ${nodes.size} Akteure</span>
-    <span class="stat-pill">🔗 ${data.length} Datenflüsse</span>
-    <span class="stat-pill">🔒 ${data.filter(r => r.Schutzbedarf === 'DSGVO-relevant').length} DSGVO</span>
-    <span class="stat-pill">🤖 ${data.filter(r => r.Erfassungsart === 'Automatisiert').length} automatisiert</span>
+    <span class="stat-pill"><i class="fas fa-circle-nodes"></i> ${nodes.size} Akteure</span>
+    <span class="stat-pill"><i class="fas fa-link"></i> ${data.length} Datenflüsse</span>
+    <span class="stat-pill"><i class="fas fa-shield-halved"></i> ${data.filter(r => r.Schutzbedarf === 'DSGVO-relevant').length} DSGVO</span>
+    <span class="stat-pill"><i class="fas fa-robot"></i> ${data.filter(r => r.Erfassungsart === 'Automatisiert').length} automatisiert</span>
   `;
 
   contentEl.innerHTML = '';
@@ -294,7 +294,7 @@ function renderNetwork(data) {
 function renderInsights(data) {
   const grid = document.getElementById('insights-grid');
   if (!data.length) {
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📊</div><p>Keine Daten für Analyse vorhanden.</p></div>';
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon"><i class="fas fa-chart-bar fa-2x"></i></div><p>Keine Daten für Analyse vorhanden.</p></div>';
     return;
   }
 
@@ -316,12 +316,12 @@ function renderInsights(data) {
   const bottlenecks = nodeArr.map(n => ({ name: n, val: Math.round(bc[n] || 0) })).sort((a,b) => b.val - a.val).slice(0, 7);
 
   grid.innerHTML = `
-    ${insightCard('📤', 'Top Datenproduzenten',     'Höchster Ausgangsgrad (Out-Degree)',          rankListHTML(producers,   producers[0]?.val   || 1))}
-    ${insightCard('📥', 'Top Datensammler',          'Höchster Eingangsgrad (In-Degree)',           rankListHTML(consumers,   consumers[0]?.val   || 1))}
-    ${insightCard('🔀', 'Flaschenhälse / Gatekeeper','Betweenness Centrality',                      rankListHTML(bottlenecks, bottlenecks[0]?.val || 1))}
-    ${insightCard('🏘',  'Datensilos / Cluster',      'Label-Propagation Community Detection',       clustersHTML(clusters))}
-    ${insightCard('🔒', 'Schutzbedarf-Verteilung',   'Anzahl Datenflüsse je Schutzstufe',           pieHTML(data, 'Schutzbedarf',  SCHUTZ_OPTS))}
-    ${insightCard('⚙️', 'Erfassungsart-Verteilung',  'Manuelle vs. automatisierte Flüsse',          pieHTML(data, 'Erfassungsart', ERFASSUNG_OPTS))}
+    ${insightCard('<i class="fas fa-upload"></i>', 'Top Datenproduzenten',     'Höchster Ausgangsgrad (Out-Degree)',          rankListHTML(producers,   producers[0]?.val   || 1))}
+    ${insightCard('<i class="fas fa-download"></i>', 'Top Datensammler',          'Höchster Eingangsgrad (In-Degree)',           rankListHTML(consumers,   consumers[0]?.val   || 1))}
+    ${insightCard('<i class="fas fa-code-branch"></i>', 'Flaschenhälse / Gatekeeper','Betweenness Centrality',                      rankListHTML(bottlenecks, bottlenecks[0]?.val || 1))}
+    ${insightCard('<i class="fas fa-layer-group"></i>', 'Datensilos / Cluster',      'Label-Propagation Community Detection',       clustersHTML(clusters))}
+    ${insightCard('<i class="fas fa-shield-halved"></i>', 'Schutzbedarf-Verteilung',   'Anzahl Datenflüsse je Schutzstufe',           pieHTML(data, 'Schutzbedarf',  SCHUTZ_OPTS))}
+    ${insightCard('<i class="fas fa-gear"></i>', 'Erfassungsart-Verteilung',  'Manuelle vs. automatisierte Flüsse',          pieHTML(data, 'Erfassungsart', ERFASSUNG_OPTS))}
   `;
 }
 
@@ -471,13 +471,13 @@ const WIZARD_STEPS = [
         <label>Schutzbedarf</label>
         <div class="radio-group">
           ${[
-            { val: 'DSGVO-relevant', desc: 'Personenbezogene oder besonders schützenswerte Daten (Art. 9 DSGVO)' },
-            { val: 'Intern',         desc: 'Daten für den internen Gebrauch, nicht öffentlich zugänglich' },
-            { val: 'Öffentlich',     desc: 'Daten, die ohne Einschränkung veröffentlicht werden können' }
+            { val: 'DSGVO-relevant', icon: 'fa-shield-halved', desc: 'Personenbezogene oder besonders schützenswerte Daten (Art. 9 DSGVO)' },
+            { val: 'Intern',         icon: 'fa-lock',          desc: 'Daten für den internen Gebrauch, nicht öffentlich zugänglich' },
+            { val: 'Öffentlich',     icon: 'fa-globe',         desc: 'Daten, die ohne Einschränkung veröffentlicht werden können' }
           ].map(o => `
             <label class="radio-option">
               <input type="radio" name="Schutzbedarf" value="${o.val}">
-              <div><div class="radio-option-label">${o.val}</div><div class="radio-option-desc">${o.desc}</div></div>
+              <div><div class="radio-option-label"><i class="fas ${o.icon}"></i> ${o.val}</div><div class="radio-option-desc">${o.desc}</div></div>
             </label>`).join('')}
         </div>
       </div>
@@ -485,12 +485,12 @@ const WIZARD_STEPS = [
         <label>Erfassungsart</label>
         <div class="radio-group">
           ${[
-            { val: 'Manuell',       desc: 'Daten werden durch menschliches Eingreifen erfasst oder übertragen' },
-            { val: 'Automatisiert', desc: 'Daten fließen automatisch über Schnittstellen oder Batch-Prozesse' }
+            { val: 'Manuell',       icon: 'fa-hand',  desc: 'Daten werden durch menschliches Eingreifen erfasst oder übertragen' },
+            { val: 'Automatisiert', icon: 'fa-robot', desc: 'Daten fließen automatisch über Schnittstellen oder Batch-Prozesse' }
           ].map(o => `
             <label class="radio-option">
               <input type="radio" name="Erfassungsart" value="${o.val}">
-              <div><div class="radio-option-label">${o.val}</div><div class="radio-option-desc">${o.desc}</div></div>
+              <div><div class="radio-option-label"><i class="fas ${o.icon}"></i> ${o.val}</div><div class="radio-option-desc">${o.desc}</div></div>
             </label>`).join('')}
         </div>
       </div>`
@@ -546,7 +546,7 @@ function renderWizardStep() {
 
   document.getElementById('wizard-hint').textContent  = step.hint;
   document.getElementById('wizard-back').style.display = wizardStep === 0 ? 'none' : '';
-  document.getElementById('wizard-next').textContent   = wizardStep === WIZARD_STEPS.length - 1 ? '✓ Speichern' : 'Weiter →';
+  document.getElementById('wizard-next').innerHTML   = wizardStep === WIZARD_STEPS.length - 1 ? '<i class="fas fa-check"></i> Speichern' : 'Weiter <i class="fas fa-arrow-right"></i>';
 }
 
 function collectWizardStep() {
