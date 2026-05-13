@@ -1,4 +1,4 @@
-# Datengraf — Datenökosystem-Mapper
+# Datengraf — der Datenökosystem-Mapper
 
 **Datengraf** ist ein browserbasiertes, datenbankfreies Werkzeug zur interaktiven Kartierung und Analyse von Datenflüssen innerhalb von Organisationen. Es unterstützt Datenschutzbeauftragte, Architekten und Analysten dabei, Datenökosysteme sichtbar zu machen – ohne Server, ohne Login, ohne Cloud.
 

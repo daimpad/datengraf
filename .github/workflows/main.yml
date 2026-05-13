@@ -3,24 +3,16 @@ name: FTP Deploy
 on:
   push:
     branches:
-      - main
-
-jobs:
-  web-deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
-
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server:    ${{ secrets.FTP_SERVER }}
-          username:  ${{ secrets.FTP_USERNAME }}
-          password:  ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: ./httpdocs/datengraf/
+          server:    ${{ a2ea9.netcup.net }}
+          username:  ${{ ftp_paderta	}}
+          password:  ${{ jn59E_1d }}
+          local-dir: ./dist/datengraf # Dein lokaler Build-Ordner
+          server-dir: ./code.nozilla.net/httpdocs/datengraf # Dein Zielordner auf dem Server
           exclude: |
             **/.git*
             **/.git*/**
@@ -28,3 +20,5 @@ jobs:
             DOCS.md
             SECURITY.md
             CONTRIBUTING.md
+ 
+
