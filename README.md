@@ -1,11 +1,12 @@
-# Datengraf — der Datenökosystem-Mapper
+# Datengraf - der Datenökosystem-Mapper
 
-**Datengraf** ist ein browserbasiertes, datenbankfreies Werkzeug zur interaktiven Kartierung und Analyse von Datenflüssen innerhalb von Organisationen. Es unterstützt Datenschutzbeauftragte, Architekten und Analysten dabei, Datenökosysteme sichtbar zu machen – ohne Server, ohne Login, ohne Cloud.
 
 [![HTML/JS](https://img.shields.io/badge/stack-HTML%20%2F%20JS-informational?logo=javascript)](https://github.com/daimpad/datengraf)
 [![Lizenz](https://img.shields.io/badge/Lizenz-GPL--3.0-blue)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-aktiv-brightgreen)]()
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-bereit-blueviolet?logo=github)](https://daimpad.github.io/datengraf)
+
+**Datengraf** ist ein browserbasiertes, datenbankfreies Werkzeug zur interaktiven Kartierung und Analyse von Datenflüssen innerhalb von Organisationen. Es unterstützt Datenschutzbeauftragte, Architekten und Analysten dabei, Datenökosysteme sichtbar zu machen – ohne Server, ohne Login, ohne Cloud.
 
 ---
 
