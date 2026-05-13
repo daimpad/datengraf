@@ -719,15 +719,20 @@ document.getElementById('export-csv-btn').addEventListener('click', () => {
   URL.revokeObjectURL(a.href);
 });
 
+// ── Sample Data ───────────────────────────────────────────────────────────────
+document.getElementById('btn-load-sample').addEventListener('click', () => {
+  setStatus('Lade Beispieldaten…', 'loading');
+  fetch('data/sample.csv')
+    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); })
+    .then(text => {
+      if (!text) { setStatus('Beispieldaten leer.', 'error'); return; }
+      allData = parseCSV(text);
+      buildSidebarFilters();
+      applyFilters();
+      setStatus(`${allData.length} Beispiel-Zeilen geladen.`, 'success');
+    })
+    .catch(e => setStatus(`Fehler beim Laden: ${e.message}`, 'error'));
+});
+
 // ── Init ──────────────────────────────────────────────────────────────────────
-fetch('data/sample.csv')
-  .then(r => r.text())
-  .then(text => {
-    allData = parseCSV(text);
-    buildSidebarFilters();
-    applyFilters();
-  })
-  .catch(() => {
-    // Falls kein Server läuft, bleibt die App leer und der Nutzer kann importieren
-    renderAll();
-  });
+renderAll();
