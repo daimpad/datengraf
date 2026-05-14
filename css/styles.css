@@ -173,6 +173,9 @@ body {
 }
 
 .topbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 800;
   font-size: 18px;
   letter-spacing: -0.6px;
@@ -180,6 +183,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.topbar-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .topbar-tabs { display: flex; gap: 4px; margin-left: 20px; }
@@ -720,13 +729,27 @@ textarea.csv-textarea:focus {
 .hero {
   padding: 72px 40px 64px;
   margin-bottom: 24px;
-  text-align: center;
 }
 
 .hero-content {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
 }
+
+.hero-intro {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.hero-logo {
+  width: 160px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.hero-text { flex: 1; }
 
 .hero-headline {
   font-size: 40px;
@@ -743,17 +766,13 @@ textarea.csv-textarea:focus {
   line-height: 1.75;
   margin-bottom: 40px;
   font-weight: 400;
-  max-width: 580px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
   gap: 14px;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 0;
 }
 
 .btn-lg {
@@ -930,9 +949,11 @@ textarea.csv-textarea:focus {
   .content { padding: 16px; }
 
   .hero { padding: 48px 20px 40px; margin-bottom: 16px; }
+  .hero-intro { flex-direction: column; gap: 28px; text-align: center; margin-bottom: 40px; }
+  .hero-logo { width: 110px; }
   .hero-headline { font-size: 28px; letter-spacing: -0.8px; }
   .hero-subheadline { font-size: 15px; margin-bottom: 32px; }
-  .hero-buttons { flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .hero-buttons { flex-direction: column; gap: 12px; }
   .btn-lg { width: 100%; justify-content: center; padding: 13px 24px; }
   .hero-cards { grid-template-columns: 1fr; gap: 14px; }
   .hero-card { padding: 24px 20px; }
