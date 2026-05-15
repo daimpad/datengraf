@@ -1,6 +1,8 @@
-<div align="center">
+<img width="auto" height="100" alt="Vector-Logo-of-Open-Data-Wizard_white" src="https://raw.githubusercontent.com/daimpad/datengraf/2801b4cba50ec2c874d1c671005cac0ad8c5bd3b/logo.svg" />
 
-<img src="logo.svg" alt="DatenGraf Logo" width="180" style="border-radius:220px" />
+# DatenGraf - der Datenökosystem-Mapper
+
+**DatenGraf** ist ein browserbasiertes, datenbankfreies Werkzeug zur Kartierung und Analyse von Datenflüssen innerhalb von Organisationen. Es unterstützt Datenschutzbeauftragte, Architekten und Analysten dabei, Datenökosysteme sichtbar zu machen – ohne Server, ohne Login, ohne Cloud. 
 
 # DatenGraf
 
