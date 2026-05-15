@@ -19,7 +19,7 @@ browserbasiert, ohne Server, ohne Login, ohne Cloud.
 
 <br>
 
-[**→ Jetzt starten**](https://daimpad.github.io/datengraf) · [Dokumentation](DOCS.md) · [Sicherheit](SECURITY.md) · [Mitmachen](.github/CONTRIBUTING.md)
+[**→ Jetzt starten**](https://daimpad.github.io/datengraf) · [Wiki / Docs](docs/Home.md) · [Sicherheit](SECURITY.md) · [Mitmachen](.github/CONTRIBUTING.md)
 
 </div>
 
