@@ -217,7 +217,7 @@ body {
 .topbar-spacer { flex: 1; }
 
 /* ── Mobile Navigation ───────────────────────────────────────── */
-.mobile-nav-btn { display: none; }
+#mobile-nav-btn { display: none; }
 .mobile-nav     { display: none; }
 
 .mobile-nav {
@@ -1003,7 +1003,7 @@ textarea.csv-textarea:focus {
   .insights-grid { grid-template-columns: 1fr; }
   .topbar-tabs { display: none; }
   #open-wizard-btn { display: none; }
-  .mobile-nav-btn { display: flex; }
+  #mobile-nav-btn { display: flex; }
   .mobile-nav:not(.hidden) { display: flex; }
 
   .content { padding: 16px; }
