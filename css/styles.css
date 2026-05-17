@@ -218,6 +218,7 @@ body {
 
 /* ── Mobile Navigation ───────────────────────────────────────── */
 .mobile-nav-btn { display: none; }
+.mobile-nav     { display: none; }
 
 .mobile-nav {
   position: fixed;
@@ -231,7 +232,6 @@ body {
   border-radius: 0 0 0 var(--radius);
   box-shadow: var(--shadow-lg);
   z-index: 150;
-  display: flex;
   flex-direction: column;
   padding: 8px;
   gap: 4px;
@@ -1004,6 +1004,7 @@ textarea.csv-textarea:focus {
   .topbar-tabs { display: none; }
   #open-wizard-btn { display: none; }
   .mobile-nav-btn { display: flex; }
+  .mobile-nav:not(.hidden) { display: flex; }
 
   .content { padding: 16px; }
 
